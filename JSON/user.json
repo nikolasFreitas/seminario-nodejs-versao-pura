@@ -1,0 +1,5 @@
+[
+    { "code":"A001", "alterego":"Superman", "alias":"Clark Kent", "species":"Kryptonian" },
+    { "code":"A002", "alterego":"Batman", "alias":"Bruce Wayne", "species":"Human" },
+    { "code":"A003", "alterego":"Wonder Woman", "alias":"Diana Prince", "species":"Amazonian" }
+] 
