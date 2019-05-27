@@ -3,7 +3,7 @@ const user = require('./JSON/user.json');
 const getIp = require('./helpers/getIp');
 const processPost = require('./helpers/processPost');
 
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const port = 3000;
 
 
