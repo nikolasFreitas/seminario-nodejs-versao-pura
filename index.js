@@ -22,7 +22,6 @@ const server = http.createServer((req, res) => {
 
         case '/message':
             if (req.method === 'POST') {
-                console.log(`\n\n Nova mensagem:`);
                 processPost(req, res, () => {
                     const post = JSON.parse(req.post);
                     try {
@@ -32,7 +31,11 @@ const server = http.createServer((req, res) => {
                             res.statusCode = 200;
                             res.setHeader('Content-Type', 'text/plain')
                             res.end("Recebido ;D");
+
+                            console.log(`\n\n Nova mensagem:`);
                             console.log(message);
+                            console.log('=================');
+                            
                         } else {
                             res.statusCode = 400;
                             res.setHeader('Content-Type', 'text/html')
