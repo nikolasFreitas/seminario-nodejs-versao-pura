@@ -1,7 +1,7 @@
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
-function getIp() {
+function getIp(port) {
     Object.keys(ifaces).forEach(function (ifname) {
         var alias = 0;
 
@@ -13,10 +13,10 @@ function getIp() {
 
             if (alias >= 1) {
                 // this single interface has multiple ipv4 addresses
-                console.log("Mande requisiçes POST PARA: ", iface.address);
+                console.log(`Mande requisiçes POST PARA:  ${iface.address}:${port}`);
             } else {
                 // this interface has only one ipv4 adress
-                console.log("Mande requisiçes POST PARA: ", iface.address);
+                console.log(`Mande requisiçes POST PARA:  ${iface.address}:${port}`);
             }
             ++alias;
         });

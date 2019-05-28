@@ -6,10 +6,10 @@ const processPost = require('./helpers/processPost');
 const hostname = '127.0.0.1';
 const port = 3000;
 
-
+// Criando o servidor
 const server = http.createServer((req, res) => {
     switch (req.url) {
-        case '/usuario':
+        case '/users':
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(user));
@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
             res.end();
             break;
 
-        case '/message':
+        case '/messages':
             if (req.method === 'POST') {
                 console.log(`\n\n Nova mensagem:`);
                 processPost(req, res, () => {
@@ -32,7 +32,11 @@ const server = http.createServer((req, res) => {
                             res.statusCode = 200;
                             res.setHeader('Content-Type', 'text/plain')
                             res.end("Recebido ;D");
+
+                            console.log(`\n Nova mensagem:`);
                             console.log(message);
+                            console.log('\n =================');
+
                         } else {
                             res.statusCode = 400;
                             res.setHeader('Content-Type', 'text/html')
@@ -53,6 +57,12 @@ const server = http.createServer((req, res) => {
             }
             break;
 
+        case '/messages/segredo':
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end("PHP não é linguagem de programador");
+            break;
+
         default:
             res.statusCode = 404;
             res.end("Not found");
@@ -64,8 +74,8 @@ server.listen(port, hostname, () => {
     console.log(`Servidor está rodando na http://${hostname}:${port}/`);
     console.log("================ \n");
 
-    console.log("Hora do feedback:");
-    getIp();
+    console.log("Mandem mensagens ao vivo! \n");
+    getIp(port);
     console.log("No corpo da mensagem coloque um JSON com {'message': 'Eu queria dizer...'}");
 
     console.log("\n================");
