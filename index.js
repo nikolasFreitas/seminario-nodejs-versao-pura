@@ -22,7 +22,6 @@ const server = http.createServer((req, res) => {
 
         case '/messages':
             if (req.method === 'POST') {
-                console.log(`\n\n Nova mensagem:`);
                 processPost(req, res, () => {
                     const post = JSON.parse(req.post);
                     try {
